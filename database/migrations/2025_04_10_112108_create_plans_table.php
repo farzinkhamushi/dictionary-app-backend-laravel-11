@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('plans', function (Blueprint $table) {
             $table->id();
+            $table->longText('meaning');
+            $table->string('part_of_speach');
+            $table->longText('example_sentence');
+            $table->foriegnId('word_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
