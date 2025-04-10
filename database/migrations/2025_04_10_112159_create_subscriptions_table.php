@@ -16,8 +16,10 @@ return new class extends Migration
             $table->string('stripe_subscription_id')->unique();
             $table->string('stripe_status');
             $table->string('stripe_plan_id');
-            $table->string('current_period_start')->nullable();
-            $table->string('current_period_end')->nullable();
+            $table->timestamp('current_period_start')->nullable();
+            $table->timestamp('current_period_end')->nullable();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('plan_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
