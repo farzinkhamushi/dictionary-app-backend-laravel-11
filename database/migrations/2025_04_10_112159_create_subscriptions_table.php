@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
+            $table->string('stripe_subscription_id')->unique();
+            $table->string('stripe_status');
+            $table->string('stripe_plan_id');
+            $table->string('current_period_start')->nullable();
+            $table->string('current_period_end')->nullable();
             $table->timestamps();
         });
     }
