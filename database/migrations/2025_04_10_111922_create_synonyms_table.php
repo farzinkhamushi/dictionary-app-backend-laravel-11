@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('synonyms', function (Blueprint $table) {
             $table->id();
+            $table->string('similars');
+            $table->foriegnId('word_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
