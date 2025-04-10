@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('antonyms', function (Blueprint $table) {
             $table->id();
             $table->string('opposits');
-            $table->foriegnId('word_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('word_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
