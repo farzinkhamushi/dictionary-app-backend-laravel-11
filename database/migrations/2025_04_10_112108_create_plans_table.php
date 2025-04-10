@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('plans', function (Blueprint $table) {
             $table->id();
-            $table->longText('meaning');
-            $table->string('part_of_speach');
-            $table->longText('example_sentence');
-            $table->foriegnId('word_id')->constrained()->cascadeOnDelete();
+            $table->string('name');
+            $table->integer('number_of_hearts');
+            $table->integer('price');
             $table->timestamps();
         });
     }
