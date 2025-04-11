@@ -19,7 +19,7 @@ class AdminFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => 'admin',
+            'name' => 'farzin2',
             'email' => 'farzin2@gmail.com',
             'email_verified_at' => now(),
             'password' => Hash::make('password'),
