@@ -17,5 +17,13 @@ class AdminController extends Controller
         $synonyms = Synonym::all();
         $plans = Plan::all();
         $subscriptions = Subscription::all();
+
+        return view('admin.dashboard')->with([
+            'definitions' => $definitions ,
+            'words' => $words , 
+            'synonyms' => $synonyms ,
+            'plans' => $plans ,
+            'subscriptions' => $subscriptions
+        ]);
     }
 }
