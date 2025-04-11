@@ -20,6 +20,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'stripe_id',
+        'number_of_hearts'
     ];
 
     /**
