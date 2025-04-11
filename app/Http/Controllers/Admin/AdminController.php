@@ -4,8 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 use App\Models\Definition;
 use App\Models\Word;
+use App\Models\Synonym;
+use App\Models\Plan;
+use App\Models\Subscription;
+
 use App\Http\Requests\AuthAdminRequest;
 use Illuminate\Validation\ValidationException;
 
