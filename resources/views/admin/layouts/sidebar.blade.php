@@ -36,6 +36,7 @@
         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://cdn.pixabay.com/photo/2021/07/02/04/48/user-6380868_1280.png" alt="" width="32" height="32" class="rounded-circle me-2">
             <strong>
+                hello
                 {{ auth()->guard('admin')->user()->name }}
             </strong>
         </a>
