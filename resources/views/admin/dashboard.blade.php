@@ -24,7 +24,7 @@
                                 <div class="row align-items-center mb-2 d-flex">
                                     <div class="col-8">
                                         <h2 class="d-flex align-items-center mb-0">
-                                            <!-- words count here -->
+                                            {{ $words->count() }}
                                         </h2>
                                     </div>
                                 </div>
@@ -43,7 +43,7 @@
                                 <div class="row align-items-center mb-2 d-flex">
                                     <div class="col-8">
                                         <h2 class="d-flex align-items-center mb-0">
-                                            <!-- definitions count here -->
+                                        {{ $definitions->count() }}
                                         </h2>
                                     </div>
                                 </div>
@@ -62,7 +62,7 @@
                                 <div class="row align-items-center mb-2 d-flex">
                                     <div class="col-8">
                                         <h2 class="d-flex align-items-center mb-0">
-                                            <!-- synonyms count here -->
+                                            {{ $synonyms->count() }}
                                         </h2>
                                     </div>
                                 </div>
@@ -81,7 +81,7 @@
                                 <div class="row align-items-center mb-2 d-flex">
                                     <div class="col-8">
                                         <h2 class="d-flex align-items-center mb-0">
-                                            <!-- plans count here -->
+                                            {{ $plans->count() }}
                                         </h2>
                                     </div>
                                 </div>
@@ -100,7 +100,7 @@
                                 <div class="row align-items-center mb-2 d-flex">
                                     <div class="col-8">
                                         <h2 class="d-flex align-items-center mb-0">
-                                            <!-- subscriptions count here -->
+                                            {{ $subscriptions->count() }}
                                         </h2>
                                     </div>
                                 </div>
