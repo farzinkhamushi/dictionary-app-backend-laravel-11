@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Definition;
 use App\Models\Word;
+use App\Http\Requests\AuthAdminRequest;
+use Illuminate\Validation\ValidationException;
 
 class AdminController extends Controller
 {
@@ -37,5 +39,32 @@ class AdminController extends Controller
 
         return view('admin.login');
     }
-    
+
+    /*
+    Login the admin
+    */
+    public function auth(AuthAdminRequest $request)
+    {
+        if($request->validated())
+        {
+            if(auth()->guard('admin')->attempt([
+                'email' => $request->email,
+                'password' => $request->password
+            ]))
+            {
+                $request->session()->regenerate();
+                return redirect()->route('admin.index');
+            }else{
+                throw ValidationException::withMessages([
+                    'email' => 'These credentials do not match our records.',
+                ]);
+            }
+        }
+    }
+
+    public function logout()
+    {
+        auth()->guard('admin')->logout();
+        return redirect()->route('admin.login');
+    }
 }
