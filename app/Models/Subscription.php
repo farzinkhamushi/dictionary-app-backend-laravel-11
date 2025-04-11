@@ -29,4 +29,14 @@ class Subscription extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function getCurrentPeriodStartAttribute($value)
+    {
+        return Carbon::parse($value)->format("Y-m-d h:s:i");
+    }
+
+    public function getCurrentPeriodEndAttribute($value)
+    {
+        return Carbon::parse($value)->format("Y-m-d h:s:i");
+    }
+
 }
