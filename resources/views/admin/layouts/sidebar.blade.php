@@ -1,7 +1,7 @@
 <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark rounded" style="width: 280px;">
     <ul class="nav nav-pills flex-column mb-auto">
         <li>
-            <a href="#" class="nav-link text-white">
+            <a href="{{route('admin.index')}}" class="nav-link text-white">
                 <i class="fas fa-dashboard"></i> Dashboard
             </a>
         </li>
