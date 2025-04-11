@@ -18,12 +18,12 @@
     <!-- Bootstrap tags input CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" rel="stylesheet" />
     <title>
-        <!-- title here -->
+        @yield('title')
     </title>
 </head>
 <body class="bg-light">
     <div class="container-fluid">
-        <!-- content here -->
+        @yield('content')
     </div>
     <!-- Jquery JS -->
     <script
