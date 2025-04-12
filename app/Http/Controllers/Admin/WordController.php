@@ -48,6 +48,7 @@ class WordController extends Controller
     public function show(Word $word)
     {
         //
+        abort(404);
     }
 
     /**
@@ -55,15 +56,24 @@ class WordController extends Controller
      */
     public function edit(Word $word)
     {
-        //
+        return view('admin.words.edit')->with([
+            'word' => $word
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Word $word)
+    public function update(UpdateWordRequest $request, Word $word)
     {
-        //
+        if($request->validated()){
+            $data = $request->validated();
+            $data['slug'] = Str::slug($request->name);
+            $word->update($data);
+            return redirect()->route('admin.words.index')->with([
+                'success' => 'word updated successfully'
+            ]);
+        }
     }
 
     /**
@@ -71,6 +81,9 @@ class WordController extends Controller
      */
     public function destroy(Word $word)
     {
-        //
+        $word->delete();
+        return redirect()->route('admin.words.index')->with([
+            'success' => 'word deleted successfully'
+        ]);
     }
 }
