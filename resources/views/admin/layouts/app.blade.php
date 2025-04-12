@@ -39,24 +39,29 @@
     <!-- Bootstrap tags input JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
     <!-- Alerts -->
-    <!--<script>
-        Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "success message",
-            showConfirmButton: false,
-            timer: 2500
-        });
-    </script> -->
-    <!--<script>
-        Swal.fire({
-            position: "top-end",
-            icon: "error",
-            title: "error message",
-            showConfirmButton: false,
-            timer: 2500
-        });
-    </script> -->
+    @session('success')
+        <script>
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                //title: "error message",
+                title: "{{ session('success') }}",
+                showConfirmButton: false,
+                timer: 2500
+            });
+        </script>
+    @endsession
+    @session('error')
+        <script>
+            Swal.fire({
+                position: "top-end",
+                icon: "error",
+                title: "{{ session('error') }}",
+                showConfirmButton: false,
+                timer: 2500
+            });
+        </script>
+    @endsession
     <script>
         $(document).ready(function() {
             //datatables initialization
