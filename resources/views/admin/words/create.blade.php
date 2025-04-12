@@ -19,7 +19,33 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6 mx-auto">
-                            
+                            <form action="{{route('admin.words.store')}}" method="post">
+                                @csrf
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Name*</label>
+                                    <input
+                                        type="text"
+                                        class="form-control @error('name') is-invalid @enderror"
+                                        name="name"
+                                        id="name"
+                                        placeholder="Name*"
+                                    />
+                                    <!--     
+                                    <small id="helpId" class="form-text text-muted">Help text</small> 
+                                    -->
+                                @error('name')
+                                    <div class="invalid-feedback">
+                                        <strong>{{ $message }}</strong>
+                                    </div>
+                                @enderror
+                                </div>
+                                <button
+                                    type="submit"
+                                    class="btn btn-dark btn-sm"
+                                >
+                                    Submit
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
