@@ -15,7 +15,9 @@
                     <h3 class="mt-2">
                         Words ({{ $words->count() }})
                     </h3>
-                    <a href="{{}}" class="btn btn-sm btn-primary"></a>
+                    <a href="{{route('admin.words.create')}}" class="btn btn-sm btn-primary">
+                        <i class="fas fa-plus"></i>
+                    </a>
                 </div>
             </div>
         </div>
