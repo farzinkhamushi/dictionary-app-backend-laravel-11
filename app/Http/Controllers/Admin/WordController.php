@@ -13,7 +13,10 @@ class WordController extends Controller
      */
     public function index()
     {
-        //
+        $words = Word::all();
+        return view('admin.words.index')->with([
+            'words' => $words
+        ]);
     }
 
     /**
@@ -21,7 +24,7 @@ class WordController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.words.create');
     }
 
     /**
