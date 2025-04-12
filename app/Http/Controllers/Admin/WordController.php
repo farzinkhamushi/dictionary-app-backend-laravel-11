@@ -30,9 +30,16 @@ class WordController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AddWordRequest $request)
     {
-        //
+        if($request->validated()){
+            $data = $request->validated();
+            $data['slug'] = Str::slug($request->name);
+            Word::create($data);
+            return redirect()->route('admin.words.index')->with([
+                'success' => 'word added successfully'
+            ]);
+        }
     }
 
     /**
