@@ -6,12 +6,17 @@
 
 @section('content')
     <div class="row my-5">
-        <div class="col-md-4">
+        <div class="col-md-3">
             @include('admin.layouts.sidebar')
         </div>
-        <div class="col-md-8">
-            <div class="container">
-
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                    <h3 class="mt-2">
+                        Words ({{ $words->count() }})
+                    </h3>
+                    <a href="{{}}" class="btn btn-sm btn-primary"></a>
+                </div>
             </div>
         </div>
     </div>
