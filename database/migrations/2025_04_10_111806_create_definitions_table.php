@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('definitions', function (Blueprint $table) {
             $table->id();
             $table->longText('meaning');
-            $table->string('part_of_speach');
+            $table->string('part_of_speech');
             $table->longText('example_sentence');
             $table->foreignId('word_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
