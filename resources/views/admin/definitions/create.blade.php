@@ -48,15 +48,45 @@
                                         class="form-control @error('meaning') is-invalid @enderror"
                                         name="meaning"
                                         id="meaning"
-                                        placeholder="Meaning*">
-                                        {{old('meaning')}}
-                                    </textarea>
+                                        placeholder="Meaning*">{{old('meaning')}}</textarea>
                                     @error('meaning')
                                         <div class="invalid-feedback">
                                             <strong>{{ $message }}</strong>
                                         </div>
                                     @enderror
                                 </div>
+                                
+                                <div class="mb-3">
+                                    <label for="part_of_speech" class="form-label">Part Of Speech*</label>
+                                    <input
+                                        type="text"
+                                        class="form-control @error('part_of_speech') is-invalid @enderror"
+                                        name="part_of_speech"
+                                        id="part_of_speech"
+                                        placeholder="Part Of Speech*">{{old('part_of_speech')}}</input>
+                                    @error('part_of_speech')
+                                        <div class="invalid-feedback">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+                                
+
+                                <div class="mb-3">
+                                    <label for="example_sentence" class="form-label">Example*</label>
+                                    <textarea
+                                        rows="3"
+                                        class="form-control @error('example_sentence') is-invalid @enderror"
+                                        name="example_sentence"
+                                        id="example_sentence"
+                                        placeholder="Example*">{{old('example_sentence')}}</textarea>
+                                    @error('example_sentence')
+                                        <div class="invalid-feedback">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+                                
                                 <button
                                     type="submit"
                                     class="btn btn-dark btn-sm">
