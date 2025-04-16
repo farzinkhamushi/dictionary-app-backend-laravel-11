@@ -46,7 +46,7 @@
                                         <td>{{ $definition->example_sentence }}</td>
                                         <td>
                                             <a href="{{route('admin.definitions.edit', $definition->id)}}"
-                                                class="btn btn-sm btn-warning">
+                                                class="btn btn-sm btn-warning mb-1">
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                             <a href="#"
