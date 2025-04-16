@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\WordController;
+use App\Http\Controllers\Admin\DefinitionController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AdminController::class,'login'])->name('admin.login');
@@ -22,4 +23,17 @@ Route::prefix('admin')->middleware('admin')->group(function(){
             'destroy' => 'admin.words.destroy',
         ]
     ]);
+
+    //definitions routes
+    Route::resource('definitions',DefinitionController::class, [
+        'names' => [
+            'index' => 'admin.definitions.index',
+            'create' => 'admin.definitions.create',
+            'store' => 'admin.definitions.store',
+            'edit' => 'admin.definitions.edit',
+            'update' => 'admin.definitions.update',
+            'destroy' => 'admin.definitions.destroy',
+        ]
+    ]);
+
 });
