@@ -63,7 +63,7 @@ class DefinitionController extends Controller
     {
         $words = Word::all();
         return view('admin.definitions.edit')->with([
-            'definitions' => $definitions ,
+            'definition' => $definition ,
             'words' => $words
         ]);
     }
