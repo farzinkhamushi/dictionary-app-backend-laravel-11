@@ -11,7 +11,7 @@
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link text-white">
+            <a href="{{route('admin.definitions.index')}}" class="nav-link text-white">
                 <i class="fa-solid fa-up-right-and-down-left-from-center"></i> Definitions
             </a>
         </li>
