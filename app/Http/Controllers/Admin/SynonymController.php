@@ -85,6 +85,9 @@ class SynonymController extends Controller
      */
     public function destroy(Synonym $synonym)
     {
-        //
+        $synonym->delete();
+        return redirect()->route('admin.synonyms.index')->with([
+            'success' => 'synonym deleted successfully'
+        ]);
     }
 }
