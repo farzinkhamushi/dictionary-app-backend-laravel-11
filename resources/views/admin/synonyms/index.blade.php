@@ -39,10 +39,16 @@
                                     <tr>
                                         <td scope="row">{{ $key += 1}}</td>
                                         <td>{{ $synonym->word->name }}</td>
-                                        <td>{{ $synonym->similar }}</td>
+                                        <td>
+                                            @foreach(explode(',',$synonym->similars) as $key => $similar)
+                                                <span class="badge bg-dark">
+                                                    {{ $similar }}
+                                                </span>
+                                            @endforeach
+                                        </td>
                                         <td>
                                             <a href="{{route('admin.synonyms.edit', $synonym->id)}}"
-                                                class="btn btn-sm btn-warning mb-1">
+                                                class="btn btn-sm btn-warning">
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                             <a href="#"
