@@ -16,7 +16,7 @@
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link text-white">
+            <a href="{{route('admin.synonyms.index')}}" class="nav-link text-white">
                 <i class="fa-solid fa-lines-leaning"></i> Synonyms
             </a>
         </li>
