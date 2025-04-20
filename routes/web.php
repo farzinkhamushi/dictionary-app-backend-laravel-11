@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\WordController;
+use App\Http\Controllers\Admin\SynonymController;
 use App\Http\Controllers\Admin\DefinitionController;
 use Illuminate\Support\Facades\Route;
 
