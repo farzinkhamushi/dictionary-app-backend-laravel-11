@@ -26,4 +26,13 @@ class UpdateSynonymRequest extends FormRequest
             'word_id' => 'required'
         ];
     }
+
+
+    
+    public function messages()
+    {
+        return [
+            'word_id.required' => 'Please choose a word.',
+        ];
+    }
 }
