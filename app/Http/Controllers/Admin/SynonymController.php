@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Synonym;
 use Illuminate\Http\Request;
+use App\Http\Requests\AddSynonymRequest;
+use App\Http\Requests\UpdateSynonymRequest;
+use App\Models\Word;
 
 class SynonymController extends Controller
 {
@@ -33,9 +36,14 @@ class SynonymController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AddSynonymRequest $request)
     {
-        //
+        if($request->validated()){
+            Synonym::create($request->validated());
+            return redirect()->route('admin.synonyms.index')->with([
+                'success' => 'Synonym added successfully'
+            ]);
+        }
     }
 
     /**
@@ -44,6 +52,7 @@ class SynonymController extends Controller
     public function show(Synonym $synonym)
     {
         //
+        abort(404);
     }
 
     /**
@@ -51,7 +60,11 @@ class SynonymController extends Controller
      */
     public function edit(Synonym $synonym)
     {
-        //
+        $words = Word::all();
+        return view('admin.synonyms.edit')->with([
+            'synonym' => $synonym ,
+            'words' => $words
+        ]);
     }
 
     /**
