@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('title')
-    Edit "{{$definition->word->name}}"
+    Edit "{{$synonym->word->name}}"
 @endsection
 
 @section('content')
@@ -13,13 +13,13 @@
             <div class="card">
                 <div class="card-header bg-white">
                     <h3 class="mt-2">
-                        Edit "{{$definition->word->name}}" Definitions
+                        Edit "{{$synonym->word->name}}" Synonyms
                     </h3>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6 mx-auto">
-                            <form action="{{route('admin.definitions.update', $definition->id)}}" method="post">
+                            <form action="{{route('admin.synonyms.update', $synonym->id)}}" method="post">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="word_id" class="form-label">Word*</label>
@@ -30,7 +30,7 @@
                                         <option selected disabled value="">Select One Word</option>
                                         @foreach($words as $key => $word)
                                             <option value="{{$word->id}}"
-                                                @selected(old('word_id', $definition->word_id) == $word->id)
+                                                @selected(old('word_id', $synonym->word_id) == $word->id)
                                                 >{{$word->name}}</option>
                                         @endforeach
                                     </select>
@@ -42,20 +42,21 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="meaning" class="form-label">Meaning*</label>
+                                    <label for="similar" class="form-label">Similar*</label>
                                     <textarea
                                         rows="3"
-                                        class="form-control @error('meaning') is-invalid @enderror"
-                                        name="meaning"
-                                        id="meaning"
-                                        placeholder="Meaning*">{{old('meaning',$definition->meaning)}}</textarea>
-                                    @error('meaning')
+                                        class="form-control @error('similar') is-invalid @enderror"
+                                        name="similar"
+                                        id="similar"
+                                        placeholder="Similar*">{{old('similar',$synonym->similar)}}</textarea>
+                                    @error('similar')
                                         <div class="invalid-feedback">
                                             <strong>{{ $message }}</strong>
                                         </div>
                                     @enderror
                                 </div>
                                 
+                                {{ /*
                                 <div class="mb-3">
                                     <label for="part_of_speech" class="form-label">Part Of Speech*</label>
                                     <input
@@ -87,6 +88,9 @@
                                     @enderror
                                 </div>
                                 
+                                */ }}
+
+
                                 <button
                                     type="submit"
                                     class="btn btn-dark btn-sm">
