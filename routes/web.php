@@ -36,4 +36,17 @@ Route::prefix('admin')->middleware('admin')->group(function(){
         ]
     ]);
 
+
+    //synonyms routes
+    Route::resource('synonyms',SynonymController::class, [
+        'names' => [
+            'index' => 'admin.synonyms.index',
+            'create' => 'admin.synonyms.create',
+            'store' => 'admin.synonyms.store',
+            'edit' => 'admin.synonyms.edit',
+            'update' => 'admin.synonyms.update',
+            'destroy' => 'admin.synonyms.destroy',
+        ]
+    ]);
+
 });
