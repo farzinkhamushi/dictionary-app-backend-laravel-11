@@ -24,7 +24,10 @@ class SynonymController extends Controller
      */
     public function create()
     {
-        //
+        $words = Word::all();
+        return view('admin.synonyms.create')->with([
+            'words' => $words
+        ]);
     }
 
     /**
