@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('title')
-    Definitions
+    Synonyms
 @endsection
 
 @section('content')
@@ -13,9 +13,9 @@
             <div class="card">
                 <div class="card-header bg-white d-flex justify-content-between align-items-center">
                     <h3 class="mt-2">
-                        Definitions ({{ $definitions->count() }})
+                        Synonyms ({{ $synonyms->count() }})
                     </h3>
-                    <a href="{{route('admin.definitions.create')}}" class="btn btn-sm btn-primary">
+                    <a href="{{route('admin.synonyms.create')}}" class="btn btn-sm btn-primary">
                         <i class="fas fa-plus"></i>
                     </a>
                 </div>
@@ -30,31 +30,27 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Word</th>
-                                    <th scope="col">Meaning</th>
-                                    <th scope="col">Part Of Speech</th>
-                                    <th scope="col">Example</th>
+                                    <th scope="col">Similar</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($definitions as $key => $definition)                                    
+                                @foreach($synonyms as $key => $synonym)                                    
                                     <tr>
                                         <td scope="row">{{ $key += 1}}</td>
-                                        <td>{{ $definition->word->name }}</td>
-                                        <td>{{ $definition->meaning }}</td>
-                                        <td>{{ $definition->part_of_speech }}</td>
-                                        <td>{{ $definition->example_sentence }}</td>
+                                        <td>{{ $synonym->word->name }}</td>
+                                        <td>{{ $synonym->similar }}</td>
                                         <td>
-                                            <a href="{{route('admin.definitions.edit', $definition->id)}}"
+                                            <a href="{{route('admin.synonyms.edit', $synonym->id)}}"
                                                 class="btn btn-sm btn-warning mb-1">
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                             <a href="#"
-                                                onclick="deleteItem({{ $definition->id }})"
+                                                onclick="deleteItem({{ $synonym->id }})"
                                                 class="btn btn-sm btn-danger">
                                                 <i class="fas fa-trash"></i>
                                             </a>
-                                            <form id="{{ $definition->id }}" action="{{route('admin.definitions.destroy', $definition->id)}}" method="post">
+                                            <form id="{{ $synonym->id }}" action="{{route('admin.synonyms.destroy', $synonym->id)}}" method="post">
                                                 @csrf
                                                 @method("DELETE")
                                             </form>
