@@ -16,7 +16,7 @@ class SynonymController extends Controller
      */
     public function index()
     {
-        $synonyms = Sysnonym::all();
+        $synonyms = Synonym::all();
         return view('admin.synonyms.index')->with([
             'synonyms' => $synonyms
         ]);
