@@ -11,7 +11,7 @@ class AddSynonymRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,8 @@ class AddSynonymRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'similars' => 'required|max:255',
+            'word_id' => 'required'
         ];
     }
 }
