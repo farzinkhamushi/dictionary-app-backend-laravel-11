@@ -70,9 +70,14 @@ class SynonymController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Synonym $synonym)
+    public function update(UpdateSynonymRequest $request, Synonym $synonym)
     {
-        //
+        if($request->validated()){
+            $synonym->update($request->validated());
+            return redirect()->route('admin.synonyms.index')->with([
+                'success' => 'sysnomym Updated successfully'
+            ]);
+        }
     }
 
     /**
